@@ -219,7 +219,7 @@ function handleProxyRequest($server, $frame, $uuid, &$proxySessions) {
             $session = &$proxySessions[$frame->fd];
             $tcp = $session['tcp'];
             $data = $tcp->recv();
-            if ($data === false  $data === ''  $data === null) {
+            if ($data === false || $data === '' || $data === null) {
                 if (!$session['reconnecting']) {
                     $session['reconnecting'] = true;
                     $maxAttempts = 3;
